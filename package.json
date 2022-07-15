@@ -1,0 +1,46 @@
+{
+  "name": "optzione",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "description": "Option monadic implementation in Typescript",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "tap --no-coverage --ts --reporter=spec tests/**/*.test.ts",
+    "build": "rimraf ./build && tsc",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run build",
+    "posttest": "npm run lint"
+  },
+  "keywords": [
+    "Option",
+    "Optional",
+    "Some",
+    "None",
+    "Monad",
+  ],
+  "author": "franck.romano@protonmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/tap": "^15.0.5",
+    "@types/node": "^18.0.3",
+    "ts-node": "10.6.0",
+    "gts": "^3.1.0",
+    "tap": "^15.1.6",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "printWidth": 120,
+    "tabWidth": 2
+  }
+}
