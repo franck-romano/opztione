@@ -1,4 +1,4 @@
-import { MapFn, Optional, OrElseFn, PeekFn } from './OptionTypes';
+import { MapFn, Nullable, Optional, OrElseFn, PeekFn } from './OptionTypes';
 
 export class None<TYPE> implements Optional<TYPE> {
   private constructor() {}
@@ -19,12 +19,12 @@ export class None<TYPE> implements Optional<TYPE> {
     throw throwable;
   }
 
-  flatMap<NEW_TYPE>(mapFn: MapFn<TYPE, NEW_TYPE>): Optional<NEW_TYPE> {
-    return None<NEW_TYPE>.instance();
+  flatMap<NEW_TYPE>(mapFn: MapFn<TYPE, NEW_TYPE>): Optional<Nullable> {
+    return None<Nullable>.instance();
   }
 
-  map<NEW_TYPE>(mapFn: MapFn<TYPE, NEW_TYPE>): None<NEW_TYPE> {
-    return None<NEW_TYPE>.instance();
+  map<NEW_TYPE>(mapFn: MapFn<TYPE, NEW_TYPE>): None<Nullable> {
+    return None<Nullable>.instance();
   }
 
   isDefined(): boolean {
@@ -36,7 +36,6 @@ export class None<TYPE> implements Optional<TYPE> {
   }
 
   peek(peekFn: PeekFn): None<TYPE> {
-    peekFn();
     return this;
   }
 }
