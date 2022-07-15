@@ -1,6 +1,5 @@
 import t from 'tap';
 import { Option } from '../src/Option';
-import { Some } from '../src/Some';
 
 t.mochaGlobals();
 

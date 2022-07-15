@@ -72,13 +72,13 @@ describe('None', () => {
   });
 
   describe('.peek()', () => {
-    it('executes the provided function', () => {
+    it('does not executes the provided function', () => {
       let called = false;
       const none = Option.none();
       const actual = none.peek(() => {
         called = true;
       });
-      t.ok(called);
+      t.notOk(called);
       t.equal(none, actual);
     });
   });
