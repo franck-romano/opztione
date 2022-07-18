@@ -47,7 +47,7 @@ describe('None', () => {
 
   describe('.flatMap()', () => {
     it('returns an Optional', () => {
-      const none = Option.none().flatMap(() => true);
+      const none = Option.none().flatMap(() => Option.of(''));
       t.throws(() => none.get(), Error, 'No value present');
     });
   });

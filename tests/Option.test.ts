@@ -68,4 +68,15 @@ describe('Option', () => {
       t.equal(actual, value);
     });
   });
+
+  describe('fluent API', () => {
+    it('returns the correct value', () => {
+      const actual = Option.of('myString')
+        .map((stringValue) => stringValue.length)
+        .flatMap((stringLength) => Option.of(!!stringLength))
+        .get();
+
+      t.equal(actual, true);
+    });
+  });
 });

@@ -48,7 +48,7 @@ describe('Some', () => {
     it('returns the newly mapped value', () => {
       const some = Option.some('value');
       const expected = true;
-      const actual = some.flatMap(() => expected);
+      const actual = some.flatMap(() => Option.of(expected));
       t.equal(actual.get(), expected);
       t.not(some, actual);
     });
@@ -60,6 +60,14 @@ describe('Some', () => {
       const expected = true;
       const actual = some.map(() => expected);
       t.equal(actual.get(), expected);
+      t.not(some, actual);
+    });
+
+    it('wraps an Optional', () => {
+      const some = Option.some('value');
+      const expected = true;
+      const actual = some.map(() => Option.of(expected));
+      t.equal(actual.get().get(), expected);
       t.not(some, actual);
     });
   });
