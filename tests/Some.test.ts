@@ -15,7 +15,7 @@ describe('Some', () => {
   describe('.getOrElse()', () => {
     context('raw value supplier is provided', () => {
       it('returns the value', () => {
-        const some = Option.some(undefined);
+        const some = Option.none();
         const expected = 'fallback-value';
         const actual = some.getOrElse(expected);
 
@@ -25,7 +25,7 @@ describe('Some', () => {
 
     context('function value supplier is provided', () => {
       it('returns the value', () => {
-        const some = Option.some(null);
+        const some = Option.none();
         const expected = 'fallback-value';
         const actual = some.getOrElse(() => expected);
 

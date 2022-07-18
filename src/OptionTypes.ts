@@ -5,7 +5,7 @@ export type PeekFn<TYPE> = (value: TYPE) => void | Promise<unknown>;
 export type Nullable = undefined | null;
 
 export interface Optional<TYPE> {
-  getOrElse<T>(fallbackValue: T | OrElseFn<T>): T | TYPE;
+  getOrElse(fallbackValue: TYPE | OrElseFn<TYPE>): TYPE;
 
   getOrElseThrow(throwable: Error): TYPE;
 

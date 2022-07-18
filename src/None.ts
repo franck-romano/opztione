@@ -11,7 +11,7 @@ export class None<TYPE> implements Optional<TYPE> {
     throw new Error('No value present');
   }
 
-  getOrElse<T>(fallbackValue: OrElseFn<T> | T): T | TYPE {
+  getOrElse(fallbackValue: OrElseFn<TYPE> | TYPE): TYPE {
     return fallbackValue instanceof Function ? fallbackValue() : fallbackValue;
   }
 

@@ -7,7 +7,7 @@ export class Some<TYPE> implements Optional<TYPE> {
     return this.value;
   }
 
-  getOrElse<T>(fallbackValue: T | OrElseFn<T>): T | TYPE {
+  getOrElse(fallbackValue: TYPE | OrElseFn<TYPE>): TYPE {
     const value = this.get();
     if (fallbackValue instanceof Function) {
       return value ?? fallbackValue();

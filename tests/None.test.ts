@@ -75,7 +75,7 @@ describe('None', () => {
     it('does not executes the provided function', () => {
       let called = false;
       const none = Option.none();
-      const actual = none.peek((_) => {
+      const actual = none.peek(() => {
         called = true;
       });
       t.notOk(called);

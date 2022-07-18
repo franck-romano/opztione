@@ -2,7 +2,7 @@ import { Optional } from './OptionTypes';
 import { None } from './None';
 import { Some } from './Some';
 
-export class Option<TYPE> {
+export class Option {
   private constructor() {}
 
   static of<TYPE>(value: TYPE): Optional<TYPE> {
