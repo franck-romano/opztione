@@ -48,9 +48,6 @@ const value = Option.get() // will throw;
 Returns the wrapped value or use the provided fallback value
 
 ```js
-const nullableOption = Option.some(null);
-const stringValue = Option.getOrElse("hello"); // will be 'hello'
-
 const none = Option.none();
 const value = Option.getOrElse("hello") // will be 'hello'
 ```
@@ -64,10 +61,10 @@ const stringOption = Option.some('hello');
 const stringValue = Option.getOrElseThrow(new MyCustomError('oops')); // won't throw, will be 'hello'
 
 const nullableOption = Option.some(null);
-Option.getOrElseThrow(new MyCustomError('oops')); // will throw
+nullableOption.getOrElseThrow(new MyCustomError('oops')); // will throw
 
 const none = Option.none();
-Option.getOrElseThrow(new MyCustomError('oops')); // will throw
+none.getOrElseThrow(new MyCustomError('oops')); // will throw
 ```
 
 ### .isEmpty()
@@ -101,18 +98,18 @@ Maps the value to a new `Option` if this is a `Some`, otherwise returns `None`.
 ````js
 const stringOption = Option.some('hello');
 const newOption = stringOption.flatMap((param) => {
-    return {
+    return Option.of({
         some: 'value'
-    };
+    });
 });
 
 newOption.get() // will return Optional<{some: string}>
 
 const nullableOption = Option.none();
 const newNoneOption = nullableOption.flatMap((param) => {
-    return {
+    return Option.of({
         some: 'value'
-    };
+    });
 });
 
 newNoneOption.get() // will return None
@@ -148,12 +145,12 @@ Applies an action to this value, if this option is a `Some`, otherwise does noth
 
 ````js
 const stringOption = Option.some('hello');
-const newOption = stringOption.peek(() => {
+const newOption = stringOption.peek((value) => {
     console.log('bye') // will be executed
 });
 
 const nullableOption = Option.none();
-const newNoneOption = nullableOption.peek(() => {
+const newNoneOption = nullableOption.peek((value) => {
     console.log('oops') // won't be executed
 });
 ````
