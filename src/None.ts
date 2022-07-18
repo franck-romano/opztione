@@ -35,7 +35,7 @@ export class None<TYPE> implements Optional<TYPE> {
     return !this.isDefined();
   }
 
-  peek(peekFn: PeekFn): None<TYPE> {
+  peek(peekFn: PeekFn<TYPE>): None<TYPE> {
     return this;
   }
 }

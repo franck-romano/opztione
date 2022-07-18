@@ -74,6 +74,9 @@ describe('Option', () => {
       const actual = Option.of('myString')
         .map((stringValue) => stringValue.length)
         .flatMap((stringLength) => Option.of(!!stringLength))
+        .peek((value) => {
+          t.equal(value, true);
+        })
         .get();
 
       t.equal(actual, true);

@@ -39,8 +39,8 @@ export class Some<TYPE> implements Optional<TYPE> {
     return false;
   }
 
-  peek(peekFn: PeekFn): Optional<TYPE> {
-    peekFn();
+  peek(peekFn: PeekFn<TYPE>): Optional<TYPE> {
+    peekFn.call(this, this.get());
     return this;
   }
 }
