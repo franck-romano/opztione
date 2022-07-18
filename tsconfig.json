@@ -11,7 +11,6 @@
     "declaration": true
   },
   "include": [
-    "index.ts",
-    "tests/**/*.ts"
+    "index.ts"
   ]
 }
