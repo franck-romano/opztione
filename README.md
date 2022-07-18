@@ -29,6 +29,18 @@ const stringOption = Option.of('hello');
 const none = Option.of(null);
 ```
 
+## Example
+
+```js
+const actual = Option.of('myString')
+    .map((stringValue) => stringValue.length)
+    .flatMap((stringLength) => Option.of(!!stringLength))
+    .peek((value) => {
+        console.log('hello world', value)
+    })
+    .get(); // will return true
+```
+
 # Optional API
 
 ### .get()
