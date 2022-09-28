@@ -34,6 +34,27 @@ describe('Some', () => {
     });
   });
 
+  describe('.getOrNull()', () => {
+    context('value is defined', () => {
+      it('returns the value', () => {
+        const expected = 'expected';
+        const some = Option.some(expected);
+        const actual = some.getOrNull();
+
+        t.equal(actual, expected);
+      });
+    });
+
+    context('no value present', () => {
+      it('returns null', () => {
+        const some = Option.of(undefined);
+        const actual = some.getOrNull();
+
+        t.equal(actual, null);
+      });
+    });
+  });
+
   describe('.getOrElseThrow()', () => {
     it('throws the error', () => {
       const some = Option.some(null);

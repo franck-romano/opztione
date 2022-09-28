@@ -38,4 +38,8 @@ export class None<TYPE> implements Optional<TYPE> {
   peek(peekFn: PeekFn<TYPE>): None<TYPE> {
     return this;
   }
+
+  getOrNull(): TYPE | null {
+    return null;
+  }
 }

@@ -10,6 +10,8 @@ export interface Optional<TYPE> {
 
   get(): TYPE;
 
+  getOrNull(): TYPE | null;
+
   isEmpty(): boolean;
 
   isDefined(): boolean;

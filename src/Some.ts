@@ -43,4 +43,8 @@ export class Some<TYPE> implements Optional<TYPE> {
     peekFn.call(this, this.get());
     return this;
   }
+
+  getOrNull(): TYPE | null {
+    return this.isDefined() ? this.get() : null;
+  }
 }
